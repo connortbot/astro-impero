@@ -1,0 +1,124 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://GUI_Assets/FriendlyPlanet End.png" type="Texture" id=1]
+[ext_resource path="res://Nova_Light_Ultra.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://GUI_Assets/FriendlyPlanet.png" type="Texture" id=3]
+[ext_resource path="res://Instances/PlanetReading.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 120
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 45
+use_mipmaps = true
+font_data = ExtResource( 2 )
+
+[node name="PlanetReading" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -54.0
+margin_bottom = -589.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 1190.0
+margin_bottom = 154.0
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Planet" type="TextureRect" parent="HBoxContainer"]
+margin_right = 1021.0
+margin_bottom = 154.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlanetEnd" type="TextureRect" parent="HBoxContainer"]
+margin_left = 1041.0
+margin_right = 1206.0
+margin_bottom = 154.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlanetName" type="Label" parent="."]
+margin_left = 148.349
+margin_top = 28.7615
+margin_right = 490.349
+margin_bottom = 132.762
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Planet Name"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GarrisonAmount" type="Label" parent="."]
+margin_left = 704.726
+margin_top = 53.4225
+margin_right = 740.726
+margin_bottom = 93.4225
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "x10"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MetalsAmount" type="Label" parent="."]
+margin_left = 958.554
+margin_top = 93.1208
+margin_right = 994.554
+margin_bottom = 133.121
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "x10"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnergyAmount" type="Label" parent="."]
+margin_left = 826.227
+margin_top = 90.7148
+margin_right = 862.227
+margin_bottom = 130.715
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "x10"
+valign = 1
+
+[node name="FuelAmount" type="Label" parent="."]
+margin_left = 825.625
+margin_top = 23.3481
+margin_right = 861.625
+margin_bottom = 63.3481
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "x10"
+valign = 1
+
+[node name="FactoryAmount" type="Label" parent="."]
+margin_left = 952.539
+margin_top = 23.3481
+margin_right = 988.539
+margin_bottom = 63.3481
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "x10"
+valign = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_PlanetReading_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_PlanetReading_mouse_exited"]
