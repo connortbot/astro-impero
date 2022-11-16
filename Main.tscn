@@ -1,0 +1,839 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://Console.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Side Panel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Resources Panel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://3DMap/3DMap.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Main.gd" type="Script" id=5]
+[ext_resource path="res://GUI_Assets/Background.png" type="Texture" id=6]
+[ext_resource path="res://Inventory_Manager.gd" type="Script" id=7]
+[ext_resource path="res://GUI_Assets/mapterminaltop.png" type="Texture" id=8]
+[ext_resource path="res://GUI_Assets/unitreportbutton.png" type="Texture" id=10]
+[ext_resource path="res://GUI_Assets/battlereportbutton.png" type="Texture" id=11]
+[ext_resource path="res://PopupWindow.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Nova_Light_Ultra.ttf" type="DynamicFontData" id=14]
+[ext_resource path="res://LCARSText.tres" type="DynamicFont" id=16]
+[ext_resource path="res://Edge of the Galaxy.tres" type="DynamicFont" id=17]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0784314, 0.741176, 0.807843, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Animation" id=3]
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath("PlanetLabel:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.233258, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0.04 ), Vector2( 0.12, 0.04 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PlanetLabel/Label:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.8, 0.95, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=4]
+tracks/0/type = "value"
+tracks/0/path = NodePath("PlanetLabel:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.233258, 1 ),
+"update": 0,
+"values": [ Vector2( 0.12, 0.04 ), Vector2( 0, 0.04 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PlanetLabel/Label:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 1.05
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath("Window:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 0.307786, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0.375 ), Vector2( -0.1, 0.375 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VBoxContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.575, 0.6, 0.825, 0.9, 0.975, 1.05 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 1.275
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath("Window:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.525, 1.275 ),
+"transitions": PoolRealArray( 1, 0.307786, 1 ),
+"update": 0,
+"values": [ Vector2( -0.1, 0.375 ), Vector2( -0.1, 0.375 ), Vector2( 1e-05, 0.375 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VBoxContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.025, 0.125, 0.3, 0.375, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, false, true, false ]
+}
+
+[sub_resource type="Animation" id=7]
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath("PlanetLabel:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.233258, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0.04 ), Vector2( 0.12, 0.04 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PlanetLabel/Label:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.8, 0.95, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=8]
+tracks/0/type = "value"
+tracks/0/path = NodePath("PlanetLabel:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.233258, 1 ),
+"update": 0,
+"values": [ Vector2( 0.12, 0.04 ), Vector2( 0, 0.04 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PlanetLabel/Label:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="DynamicFont" id=9]
+size = 60
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 14 )
+
+[sub_resource type="Animation" id=10]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 2 ]
+}
+
+[sub_resource type="Animation" id=11]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 2 ]
+}
+
+[sub_resource type="Animation" id=12]
+tracks/0/type = "value"
+tracks/0/path = NodePath("../PopupWindow:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.25, 1 ),
+"update": 0,
+"values": [ Vector2( -800, 246.898 ), Vector2( 460.494, 246.898 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../PopupWindow:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=13]
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../WinLabel:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.1, 3.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0, 0, 8 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../TurnsCounter:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3.6, 3.9, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../WinLabel:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 2.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../MenuButton:rect_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2.1, 4.4, 5 ),
+"transitions": PoolRealArray( 1, 1, 0.25, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1 ), Vector2( 0, 1 ), Vector2( 0, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../MenuButton/Menu:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.6, 4.5, 4.7, 4.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true, false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../Side Panel:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.3, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../Resources Panel:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.3, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../Map:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.3, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("../3DMap:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.3, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("../Console:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.3, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false ]
+}
+
+[sub_resource type="DynamicFont" id=14]
+size = 40
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 14 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 40
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 14 )
+
+[node name="MainUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.20996
+margin_top = 1.62064
+margin_right = 1.20984
+margin_bottom = 1.62067
+mouse_filter = 2
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+rect_scale = Vector2( 0.667, 0.694 )
+mouse_filter = 2
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Side Panel" parent="." instance=ExtResource( 2 )]
+anchor_left = 0.618
+anchor_top = 0.0972513
+anchor_bottom = 0.690251
+margin_left = -2.66119
+margin_top = -13.3187
+margin_right = 724.172
+margin_bottom = 673.881
+rect_scale = Vector2( 0.438, 0.438 )
+mouse_filter = 2
+script = ExtResource( 7 )
+
+[node name="TitleLabel" parent="Side Panel" index="8"]
+mouse_filter = 1
+
+[node name="DataWindow" parent="Side Panel" index="9"]
+mouse_filter = 2
+
+[node name="ScrollContainer" parent="Side Panel/DataWindow" index="0"]
+mouse_filter = 2
+
+[node name="Resources Panel" parent="." instance=ExtResource( 3 )]
+anchor_left = 0.633
+anchor_top = 0.718
+margin_left = -17.1783
+margin_top = -21.8171
+margin_right = 692.014
+margin_bottom = 408.983
+rect_scale = Vector2( 0.438, 0.438 )
+focus_mode = 1
+
+[node name="Map" type="Control" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1266.49
+margin_top = -720.959
+margin_right = 272.513
+margin_bottom = 251.041
+rect_scale = Vector2( 0.5, 0.5 )
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MapTerminalTop" type="TextureRect" parent="Map"]
+margin_left = 27.4811
+margin_top = -2.26178
+margin_right = 1537.48
+margin_bottom = 377.738
+mouse_filter = 2
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TurnBar" type="ProgressBar" parent="Map/MapTerminalTop"]
+margin_left = 308.0
+margin_top = 80.0
+margin_right = 1444.0
+margin_bottom = 99.0
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BattleReportButton-" type="TextureButton" parent="Map"]
+margin_left = 28.5202
+margin_top = 653.582
+margin_right = 268.52
+margin_bottom = 899.582
+rect_pivot_offset = Vector2( 120, 123 )
+texture_normal = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UnitReportButton-" type="TextureButton" parent="Map"]
+margin_left = 28.5812
+margin_top = 389.814
+margin_right = 268.581
+margin_bottom = 636.814
+rect_pivot_offset = Vector2( 120, 123 )
+texture_normal = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="3DMap" type="Control" parent="."]
+margin_right = 773.0
+margin_bottom = 504.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ViewportContainer" type="ViewportContainer" parent="3DMap"]
+margin_left = 179.389
+margin_top = 87.1337
+margin_right = 1129.39
+margin_bottom = 737.134
+rect_scale = Vector2( 0.6, 0.6 )
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="3DMap/ViewportContainer"]
+size = Vector2( 950, 650 )
+handle_input_locally = false
+render_target_update_mode = 3
+physics_object_picking = true
+
+[node name="3DMap" parent="3DMap/ViewportContainer/Viewport" instance=ExtResource( 4 )]
+
+[node name="Sector1" parent="3DMap/ViewportContainer/Viewport/3DMap/Galaxy/Sector1Origin" index="0"]
+material/0 = null
+
+[node name="Sector2" parent="3DMap/ViewportContainer/Viewport/3DMap/Galaxy/Sector2Origin" index="0"]
+material/0 = null
+
+[node name="Sector3" parent="3DMap/ViewportContainer/Viewport/3DMap/Galaxy/Sector3Origin" index="0"]
+material/0 = null
+
+[node name="Sector4" parent="3DMap/ViewportContainer/Viewport/3DMap/Galaxy/Sector4Origin" index="0"]
+material/0 = null
+
+[node name="Sector5" parent="3DMap/ViewportContainer/Viewport/3DMap/Galaxy/Sector5Origin" index="0"]
+material/0 = null
+
+[node name="Sector6" parent="3DMap/ViewportContainer/Viewport/3DMap/Galaxy/Sector6Origin" index="0"]
+material/0 = null
+
+[node name="Sector7" parent="3DMap/ViewportContainer/Viewport/3DMap/Galaxy/Sector7Origin" index="0"]
+material/0 = null
+
+[node name="Sector8" parent="3DMap/ViewportContainer/Viewport/3DMap/Galaxy/Sector8Origin" index="0"]
+material/0 = null
+
+[node name="Sector9" parent="3DMap/ViewportContainer/Viewport/3DMap/Galaxy/Sector9Origin" index="0"]
+material/0 = null
+
+[node name="Window" type="TextureRect" parent="3DMap"]
+margin_left = 753.83
+margin_top = 78.5844
+margin_right = 2673.83
+margin_bottom = 1158.58
+rect_scale = Vector2( 1e-05, 0.375 )
+mouse_filter = 2
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlanetLabel" type="TextureRect" parent="3DMap"]
+margin_left = 355.193
+margin_top = 105.467
+margin_right = 2275.19
+margin_bottom = 1185.47
+rect_scale = Vector2( 1e-05, 0.04 )
+mouse_filter = 2
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="3DMap/PlanetLabel"]
+visible = false
+margin_left = 621.039
+margin_top = 52.6243
+margin_right = 699.039
+margin_bottom = 92.6243
+rect_scale = Vector2( 8.33, 25 )
+custom_fonts/font = ExtResource( 16 )
+text = "Anaxes"
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="3DMap"]
+anims/PlanetLabelIn = SubResource( 3 )
+anims/PlanetLabelOut = SubResource( 4 )
+anims/WindowIn = SubResource( 5 )
+anims/WindowOut = SubResource( 6 )
+
+[node name="AnimationPlayerP" type="AnimationPlayer" parent="3DMap"]
+anims/PlanetLabelIn = SubResource( 7 )
+anims/PlanetLabelOut = SubResource( 8 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="3DMap"]
+visible = false
+margin_left = 569.766
+margin_top = 92.302
+margin_right = 774.766
+margin_bottom = 469.302
+custom_constants/separation = 15
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sector" type="Button" parent="3DMap/VBoxContainer"]
+margin_top = 11.0
+margin_right = 205.0
+margin_bottom = 70.0
+custom_fonts/font = SubResource( 9 )
+text = "Sector 401"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sector2" type="Button" parent="3DMap/VBoxContainer"]
+margin_top = 85.0
+margin_right = 205.0
+margin_bottom = 144.0
+custom_fonts/font = SubResource( 9 )
+text = "Sector 402"
+flat = true
+
+[node name="Sector3" type="Button" parent="3DMap/VBoxContainer"]
+margin_top = 159.0
+margin_right = 205.0
+margin_bottom = 218.0
+custom_fonts/font = SubResource( 9 )
+text = "Sector 403"
+flat = true
+
+[node name="Sector4" type="Button" parent="3DMap/VBoxContainer"]
+margin_top = 233.0
+margin_right = 205.0
+margin_bottom = 292.0
+custom_fonts/font = SubResource( 9 )
+text = "Sector 404"
+flat = true
+
+[node name="Sector5" type="Button" parent="3DMap/VBoxContainer"]
+margin_top = 307.0
+margin_right = 205.0
+margin_bottom = 366.0
+custom_fonts/font = SubResource( 9 )
+text = "Sector 405"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Console" parent="." instance=ExtResource( 1 )]
+margin_left = 23.0509
+margin_top = 500.0
+margin_right = -651.949
+margin_bottom = -70.0
+rect_scale = Vector2( 1.25, 1.25 )
+
+[node name="MarginContainer" parent="Console/Background" index="0"]
+margin_right = 605.0
+margin_bottom = 180.0
+
+[node name="SectionsContainer" parent="Console/Background/MarginContainer" index="0"]
+margin_right = 585.0
+margin_bottom = 160.0
+
+[node name="History" parent="Console/Background/MarginContainer/SectionsContainer" index="0"]
+margin_right = 565.0
+margin_bottom = 80.0
+
+[node name="ScrollContainer" parent="Console/Background/MarginContainer/SectionsContainer/History" index="0"]
+margin_right = 565.0
+margin_bottom = 80.0
+
+[node name="InputContainer" parent="Console/Background/MarginContainer/SectionsContainer" index="1"]
+margin_top = 100.0
+margin_right = 565.0
+margin_bottom = 140.0
+
+[node name="HBoxContainer" parent="Console/Background/MarginContainer/SectionsContainer/InputContainer" index="0"]
+margin_right = 565.0
+
+[node name="Input" parent="Console/Background/MarginContainer/SectionsContainer/InputContainer/HBoxContainer" index="1"]
+margin_right = 565.0
+
+[node name="Autocomplete" parent="Console" index="1"]
+visible = false
+margin_top = 50.0
+margin_bottom = 82.0
+
+[node name="PopupWindow" parent="." instance=ExtResource( 12 )]
+visible = false
+margin_left = -800.0
+margin_top = 246.898
+margin_right = -344.0
+margin_bottom = 513.898
+rect_scale = Vector2( 2, 2 )
+mouse_filter = 0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -5.0
+pitch_scale = 0.5
+
+[node name="FadeIn" type="TextureRect" parent="."]
+visible = false
+margin_right = 1920.0
+margin_bottom = 1080.0
+rect_scale = Vector2( 0.667, 0.694 )
+mouse_filter = 2
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FadeIn"]
+anims/FadeIn = SubResource( 10 )
+anims/FadeOut = SubResource( 11 )
+anims/PopupSwing = SubResource( 12 )
+anims/WinScreen = SubResource( 13 )
+
+[node name="WinLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -114.5
+margin_top = -85.0
+margin_right = 114.5
+margin_bottom = -3.0
+custom_fonts/font = ExtResource( 17 )
+text = "!Winner!"
+align = 1
+valign = 1
+percent_visible = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TurnsCounter" type="Label" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -175.0
+margin_top = -9.0
+margin_right = 175.0
+margin_bottom = 76.0
+rect_pivot_offset = Vector2( 175, 0 )
+custom_fonts/font = SubResource( 14 )
+text = "_____ defeated _____ in __ turns..."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuButton" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.5
+margin_top = 139.0
+margin_right = 100.5
+margin_bottom = 191.0
+rect_scale = Vector2( 1e-05, 1 )
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewGameBG" type="TextureRect" parent="MenuButton"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+rect_scale = Vector2( 0.105, 0.05 )
+mouse_filter = 2
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="Button" parent="MenuButton"]
+visible = false
+margin_right = 202.0
+margin_bottom = 53.0
+custom_fonts/font = SubResource( 15 )
+text = "BACK TO MENU"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+volume_db = -5.0
+
+[connection signal="pressed" from="Side Panel/PlanetsButton-" to="." method="_on_PlanetsButton_pressed"]
+[connection signal="pressed" from="Side Panel/ShipsButton-" to="." method="_on_ShipsButton_pressed"]
+[connection signal="value_changed" from="Side Panel/Settings/PanSensSlider" to="." method="_on_PanSensSlider_value_changed"]
+[connection signal="value_changed" from="Side Panel/Settings/ZoomSensSlider" to="." method="_on_ZoomSensSlider_value_changed"]
+[connection signal="pressed" from="Side Panel/MenuButton-" to="." method="_on_MenuButton_pressed"]
+[connection signal="pressed" from="Side Panel/SettingsButton-" to="." method="_on_SettingsButton_pressed"]
+[connection signal="pressed" from="Resources Panel/IndustryButton/StationAmount" to="." method="_on_StationAmount_pressed"]
+[connection signal="pressed" from="Map/BattleReportButton-" to="." method="_on_BattleReportButton_pressed"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
+[connection signal="animation_finished" from="FadeIn/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="pressed" from="MenuButton/Menu" to="." method="_on_Menu_pressed"]
+[connection signal="finished" from="Music" to="." method="_on_Music_finished"]
+
+[editable path="Side Panel"]
+[editable path="Resources Panel"]
+[editable path="3DMap/ViewportContainer/Viewport/3DMap"]
+[editable path="Console"]
