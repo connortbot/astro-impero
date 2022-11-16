@@ -1,0 +1,266 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://PopupWindow.gd" type="Script" id=1]
+[ext_resource path="res://GUI_Assets/Background.png" type="Texture" id=2]
+[ext_resource path="res://GUI_Assets/DATA ANALYSIS.png" type="Texture" id=3]
+[ext_resource path="res://GUI_Assets/data_terminalbottom.png" type="Texture" id=4]
+[ext_resource path="res://Instances/ShipBattleReading.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Nova_Light_Ultra.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 12
+use_mipmaps = true
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 25
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 27
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.00784314, 0.423529, 0.976471, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.258824, 0.258824, 0.258824, 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 200
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 6 )
+
+[node name="PopupWindow" type="Control"]
+margin_right = 456.0
+margin_bottom = 267.0
+rect_pivot_offset = Vector2( 228, 133.5 )
+mouse_filter = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Textures" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_filter = 2
+
+[node name="Background" type="TextureRect" parent="Textures"]
+margin_left = 48.3572
+margin_top = 20.0505
+margin_right = 1968.36
+margin_bottom = 1100.05
+rect_scale = Vector2( 0.185, 0.21 )
+mouse_filter = 2
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Top" type="TextureRect" parent="Textures"]
+margin_left = 3.48782
+margin_top = 2.50629
+margin_right = 1068.49
+margin_bottom = 107.506
+rect_scale = Vector2( 0.4, 0.4 )
+mouse_filter = 2
+texture = ExtResource( 3 )
+
+[node name="Bottom" type="TextureRect" parent="Textures"]
+margin_left = 4.10539
+margin_top = 220.8
+margin_right = 1069.11
+margin_bottom = 325.8
+rect_scale = Vector2( 0.4, 0.4 )
+mouse_filter = 2
+texture = ExtResource( 4 )
+
+[node name="TextMode" type="Control" parent="."]
+visible = false
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Data" type="RichTextLabel" parent="TextMode"]
+margin_left = 76.0
+margin_top = 1.0
+margin_right = 345.0
+margin_bottom = 183.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NavalBattleMode" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FriendlySide" type="ScrollContainer" parent="NavalBattleMode"]
+margin_left = 61.4278
+margin_top = 65.2354
+margin_right = 1461.43
+margin_bottom = 1465.24
+rect_scale = Vector2( 0.1, 0.1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NavalBattleMode/FriendlySide"]
+custom_constants/separation = 173
+
+[node name="ShipBattleReading" parent="NavalBattleMode/FriendlySide/VBoxContainer" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="EnemySide" type="ScrollContainer" parent="NavalBattleMode"]
+margin_left = 247.065
+margin_top = 63.9226
+margin_right = 1647.06
+margin_bottom = 1463.92
+rect_scale = Vector2( 0.1, 0.1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NavalBattleMode/EnemySide"]
+custom_constants/separation = 173
+
+[node name="FriendlyTitle" type="Label" parent="NavalBattleMode"]
+anchor_left = 0.00740089
+anchor_top = -0.00740108
+anchor_right = 0.00740089
+anchor_bottom = -0.00740108
+margin_left = 110.993
+margin_top = 39.1119
+margin_right = 156.993
+margin_bottom = 61.1119
+custom_fonts/font = SubResource( 2 )
+text = "Friendly"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnemyTitle" type="Label" parent="NavalBattleMode"]
+anchor_left = 0.00740089
+anchor_top = -0.00740108
+anchor_right = 0.00740089
+anchor_bottom = -0.00740108
+margin_left = 290.099
+margin_top = 38.8158
+margin_right = 336.099
+margin_bottom = 60.8158
+custom_fonts/font = SubResource( 2 )
+text = "Enemy"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VS" type="Label" parent="NavalBattleMode"]
+anchor_left = 0.00740089
+anchor_top = -0.00740108
+anchor_right = 0.00740089
+anchor_bottom = -0.00740108
+margin_left = 218.802
+margin_top = 124.935
+margin_right = 232.802
+margin_bottom = 148.935
+custom_fonts/font = SubResource( 3 )
+text = "vs"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BalanceBar" type="ProgressBar" parent="NavalBattleMode"]
+margin_left = 164.303
+margin_top = 25.7556
+margin_right = 289.303
+margin_bottom = 39.7556
+custom_styles/fg = SubResource( 4 )
+custom_styles/bg = SubResource( 5 )
+value = 16.0
+percent_visible = false
+
+[node name="HoverWindow" type="TextureRect" parent="NavalBattleMode"]
+visible = false
+modulate = Color( 1, 1, 1, 0.486275 )
+margin_left = 1.70295
+margin_top = 2.38188
+margin_right = 1921.7
+margin_bottom = 1082.39
+rect_scale = Vector2( 0.035, 0.1 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NavalBattleMode/HoverWindow"]
+margin_left = 61.822
+margin_top = 55.0674
+margin_right = 677.822
+margin_bottom = 1190.07
+rect_scale = Vector2( 2.758, 0.862 )
+custom_constants/separation = 70
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" type="Label" parent="NavalBattleMode/HoverWindow/VBoxContainer"]
+margin_right = 616.0
+margin_bottom = 171.0
+custom_fonts/font = SubResource( 6 )
+text = "Health: 1500"
+
+[node name="Armor" type="Label" parent="NavalBattleMode/HoverWindow/VBoxContainer"]
+margin_top = 241.0
+margin_right = 616.0
+margin_bottom = 412.0
+custom_fonts/font = SubResource( 6 )
+text = "Armor: 80%"
+
+[node name="Evasion" type="Label" parent="NavalBattleMode/HoverWindow/VBoxContainer"]
+margin_top = 482.0
+margin_right = 616.0
+margin_bottom = 653.0
+custom_fonts/font = SubResource( 6 )
+text = "Evasion: 20%"
+
+[node name="Dmg" type="Label" parent="NavalBattleMode/HoverWindow/VBoxContainer"]
+margin_top = 723.0
+margin_right = 616.0
+margin_bottom = 894.0
+custom_fonts/font = SubResource( 6 )
+text = "Dmg: 5"
+
+[node name="Loss" type="Label" parent="NavalBattleMode/HoverWindow/VBoxContainer"]
+margin_top = 964.0
+margin_right = 616.0
+margin_bottom = 1135.0
+custom_fonts/font = SubResource( 6 )
+text = "Loss: -45"
+
+[connection signal="mouse_entered" from="." to="." method="_on_PopupWindow_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_PopupWindow_mouse_exited"]

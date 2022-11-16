@@ -1,0 +1,1376 @@
+[gd_scene load_steps=35 format=2]
+
+[ext_resource path="res://plex_20.tres" type="DynamicFont" id=1]
+[ext_resource path="res://LCARSText.tres" type="DynamicFont" id=2]
+[ext_resource path="res://StartMenu.gd" type="Script" id=3]
+[ext_resource path="res://MenuBackground.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Edge of the Galaxy.tres" type="DynamicFont" id=5]
+[ext_resource path="res://GUI_Assets/Background.png" type="Texture" id=6]
+[ext_resource path="res://Nova_Light_Ultra.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://LobbyMenu.gd" type="Script" id=8]
+[ext_resource path="res://EdgeOfTheGalaxy-Regular.otf" type="DynamicFontData" id=9]
+[ext_resource path="res://OST/Menu Music.wav" type="AudioStream" id=10]
+
+[sub_resource type="Animation" id=1]
+resource_name = "BacktoServerMenu"
+length = 5.0
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath("ServerMenu:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.025, 1.325, 2.025 ),
+"transitions": PoolRealArray( 1, 0.25, 1 ),
+"update": 0,
+"values": [ Vector2( 1500, 0 ), Vector2( 1500, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("LobbyMenu:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.325, 1.05, 6.025 ),
+"transitions": PoolRealArray( 1, 0.25, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( -1500, 0 ), Vector2( -1500, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "FadeIn"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("FadeIn:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Music:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "JoinGame"
+length = 4.0
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath("ServerMenu/JoinGameMenu/UserNameInputs:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.307786, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ServerMenu/JoinGameMenu/Labels:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.025, 1.25, 1.575, 1.65 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ServerMenu/JoinGameMenu/JoinGame/JoinGameBG:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2.025, 2.5 ),
+"transitions": PoolRealArray( 1, 0.25, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0.05 ), Vector2( 0, 0.05 ), Vector2( 0.106, 0.05 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ServerMenu/JoinGameMenu/JoinGame/JoinGame:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2.65 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ServerMenu/JoinGameMenu/MatchIDInput:rect_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.25, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 4.0
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath("ServerMenu/CreateGameMenu/UserNameInputs:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.307786, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ServerMenu/CreateGameMenu/Labels:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.025, 1.25, 1.575, 1.65 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ServerMenu/CreateGameMenu/NewGame/NewGameBG:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2.025, 2.5 ),
+"transitions": PoolRealArray( 1, 0.25, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0.05 ), Vector2( 0, 0.05 ), Vector2( 0.106, 0.05 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ServerMenu/CreateGameMenu/NewGame/NewGame:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2.65 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ServerMenu/CreateGameMenu/UserNameInputs:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("ServerMenu/CreateGameMenu/NewGame:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.05 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 4.0
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath("StartMenu/NewGame:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.65, 2.6 ),
+"transitions": PoolRealArray( 1, 0.267943, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1 ), Vector2( 0, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("StartMenu/NewGame/Button:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.65, 2.6, 2.9, 2.975 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true, false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("StartMenu/LoadGame:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.775, 2.725 ),
+"transitions": PoolRealArray( 1, 0.25, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1 ), Vector2( 1e-05, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("StartMenu/LoadGame/LoadGameButton:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.775, 2.725, 3.025, 3.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 5.0
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath("ServerMenu:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.2501, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1500, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("LobbyMenu:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.3, 2 ),
+"transitions": PoolRealArray( 1, 0.25, 1 ),
+"update": 0,
+"values": [ Vector2( -1500, 0 ), Vector2( -1500, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/PlayersList/PlayerList/MarginContainer/Scroll/VBoxContainer:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2, 2.5 ),
+"transitions": PoolRealArray( 1, 0.25, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1 ), Vector2( 0, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/PlanetsList/StartingPlanetList/MarginContainer/Scroll/VBoxContainer:rect_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2.2, 2.7 ),
+"transitions": PoolRealArray( 1, 0.25, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1 ), Vector2( 0, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/Buttons:rect_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2.4, 2.9 ),
+"transitions": PoolRealArray( 1, 0.25, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1 ), Vector2( 0, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/Buttons/CloseLobby/Button:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 3.2, 3.325, 3.375 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/Buttons/StartGame/StartButton:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 3.2, 3.325, 3.375 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/PlayersList/PlayerList/MarginContainer/Scroll/VBoxContainer/Player/MarginContainer/Label:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 2.8, 2.925, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/PlayersList/PlayerList/MarginContainer/Scroll/VBoxContainer/Player2/MarginContainer/Label:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 2.8, 2.925, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/PlanetsList/StartingPlanetList/MarginContainer/Scroll/VBoxContainer/Botra/MarginContainer/Botra:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 3, 3.125, 3.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/PlanetsList/StartingPlanetList/MarginContainer/Scroll/VBoxContainer/Anaxes/MarginContainer/Anaxes:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 3, 3.125, 3.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/PlayersList/Player List:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 1.975 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/PlanetsList/Planet List:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 1.975 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "ToServerMenu"
+length = 5.0
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath("StartMenu:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.2501, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1500, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ServerMenu:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.3, 2 ),
+"transitions": PoolRealArray( 1, 0.25, 1 ),
+"update": 0,
+"values": [ Vector2( -1500, 0 ), Vector2( -1500, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ServerMenu/FirstButtons:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2, 2.5 ),
+"transitions": PoolRealArray( 1, 0.25, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1 ), Vector2( 0, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ServerMenu/FirstButtons/CreateGame/CreateGameButton:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2.375, 2.8, 2.93, 2.98 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true, false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ServerMenu/FirstButtons/JoinGame/JoinGameButton:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2.375, 2.8, 2.93, 2.98 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true, false, true ]
+}
+
+[sub_resource type="DynamicFont" id=8]
+size = 40
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.101961, 0.101961, 0.101961, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="DynamicFont" id=11]
+size = 40
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0, 0, 0, 0.64 )
+
+[sub_resource type="StyleBoxEmpty" id=13]
+
+[sub_resource type="DynamicFont" id=14]
+size = 60
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxEmpty" id=15]
+
+[sub_resource type="DynamicFont" id=16]
+size = 40
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=17]
+bg_color = Color( 0, 0, 0, 0.6 )
+
+[sub_resource type="StyleBoxEmpty" id=18]
+
+[sub_resource type="DynamicFont" id=19]
+size = 40
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=20]
+size = 40
+font_data = ExtResource( 9 )
+
+[sub_resource type="StyleBoxEmpty" id=21]
+
+[sub_resource type="StyleBoxFlat" id=22]
+bg_color = Color( 0, 0, 0, 0.68 )
+
+[sub_resource type="StyleBoxEmpty" id=23]
+
+[sub_resource type="DynamicFont" id=24]
+size = 40
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 7 )
+
+[node name="StartMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 500.418, -199.525 )
+script = ExtResource( 3 )
+
+[node name="Background" type="ViewportContainer" parent="."]
+margin_right = 1280.0
+margin_bottom = 750.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="Background"]
+size = Vector2( 1280, 750 )
+handle_input_locally = false
+render_target_update_mode = 3
+gui_disable_input = true
+
+[node name="MenuBackground" parent="Background/Viewport" instance=ExtResource( 4 )]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/BacktoServerMenu = SubResource( 1 )
+anims/FadeIn = SubResource( 2 )
+anims/JoinGame = SubResource( 3 )
+anims/NewGame = SubResource( 4 )
+anims/Start = SubResource( 5 )
+anims/ToLobbyMenu = SubResource( 6 )
+anims/ToServerMenu = SubResource( 7 )
+
+[node name="StartMenu" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="StartMenu"]
+margin_left = 316.027
+margin_top = 158.827
+margin_right = 958.027
+margin_bottom = 266.827
+custom_fonts/font = ExtResource( 5 )
+text = "SPACE TERMINALS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewGame" type="Control" parent="StartMenu"]
+margin_left = 309.779
+margin_top = 316.863
+margin_right = 597.779
+margin_bottom = 368.863
+rect_scale = Vector2( 1e-05, 1 )
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewGameBG" type="TextureRect" parent="StartMenu/NewGame"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+rect_scale = Vector2( 0.105, 0.05 )
+mouse_filter = 2
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="StartMenu/NewGame"]
+visible = false
+margin_right = 286.0
+margin_bottom = 53.0
+custom_fonts/font = SubResource( 8 )
+text = "NEW GAME"
+flat = true
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoadGame" type="Control" parent="StartMenu"]
+margin_left = 309.779
+margin_top = 381.863
+margin_right = 597.779
+margin_bottom = 433.863
+rect_scale = Vector2( 1e-05, 1 )
+mouse_filter = 2
+
+[node name="LoadGameBG" type="TextureRect" parent="StartMenu/LoadGame"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+rect_scale = Vector2( 0.105, 0.05 )
+mouse_filter = 2
+texture = ExtResource( 6 )
+
+[node name="LoadGameButton" type="Button" parent="StartMenu/LoadGame"]
+visible = false
+margin_right = 286.0
+margin_bottom = 53.0
+custom_fonts/font = SubResource( 8 )
+text = "LOAD GAME"
+flat = true
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoadGameMenu" type="Control" parent="StartMenu"]
+margin_left = 797.0
+margin_top = 320.0
+margin_right = 1107.0
+margin_bottom = 678.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="StartMenu/LoadGameMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StartMenu/LoadGameMenu/ScrollContainer"]
+margin_right = 310.0
+margin_bottom = 358.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ServerMenu" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1500.0
+margin_right = -1500.0
+
+[node name="Title" type="Label" parent="ServerMenu"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -485.0
+margin_top = 182.0
+margin_right = 485.0
+margin_bottom = 264.0
+custom_fonts/font = ExtResource( 5 )
+text = "New Game"
+align = 1
+valign = 1
+
+[node name="FirstButtons" type="VBoxContainer" parent="ServerMenu"]
+margin_left = 277.0
+margin_top = 291.0
+margin_right = 481.0
+margin_bottom = 405.0
+rect_scale = Vector2( 1e-05, 1 )
+custom_constants/separation = 10
+
+[node name="CreateGame" type="Control" parent="ServerMenu/FirstButtons"]
+margin_right = 204.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 0, 52 )
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="CreateGameBG" type="TextureRect" parent="ServerMenu/FirstButtons/CreateGame"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+rect_scale = Vector2( 0.105, 0.05 )
+mouse_filter = 2
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CreateGameButton" type="Button" parent="ServerMenu/FirstButtons/CreateGame"]
+visible = false
+margin_right = 286.0
+margin_bottom = 53.0
+custom_fonts/font = SubResource( 8 )
+text = "CREATE GAME"
+flat = true
+align = 0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="JoinGame" type="Control" parent="ServerMenu/FirstButtons"]
+margin_top = 62.0
+margin_right = 204.0
+margin_bottom = 114.0
+rect_min_size = Vector2( 0, 52 )
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="JoinGameBG" type="TextureRect" parent="ServerMenu/FirstButtons/JoinGame"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+rect_scale = Vector2( 0.105, 0.05 )
+mouse_filter = 2
+texture = ExtResource( 6 )
+
+[node name="JoinGameButton" type="Button" parent="ServerMenu/FirstButtons/JoinGame"]
+visible = false
+margin_right = 286.0
+margin_bottom = 53.0
+custom_fonts/font = SubResource( 8 )
+text = "JOIN GAME"
+flat = true
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreateGameMenu" type="Control" parent="ServerMenu"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="UserNameInputs" type="Control" parent="ServerMenu/CreateGameMenu"]
+margin_left = 797.805
+margin_top = 388.098
+margin_right = 837.805
+margin_bottom = 428.098
+rect_scale = Vector2( 1e-05, 1 )
+
+[node name="P1" type="PanelContainer" parent="ServerMenu/CreateGameMenu/UserNameInputs"]
+margin_right = 250.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 9 )
+
+[node name="MarginContainer" type="MarginContainer" parent="ServerMenu/CreateGameMenu/UserNameInputs/P1"]
+margin_right = 250.0
+margin_bottom = 37.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="UsernameEntry" type="LineEdit" parent="ServerMenu/CreateGameMenu/UserNameInputs/P1/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 245.0
+margin_bottom = 32.0
+custom_styles/normal = SubResource( 10 )
+custom_fonts/font = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Labels" type="Control" parent="ServerMenu/CreateGameMenu"]
+visible = false
+margin_left = 1.0
+margin_right = 41.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="P1Label" type="Label" parent="ServerMenu/CreateGameMenu/Labels"]
+margin_left = 826.008
+margin_top = 346.704
+margin_right = 1014.01
+margin_bottom = 381.704
+custom_fonts/font = SubResource( 11 )
+text = "Host Username"
+align = 1
+valign = 1
+
+[node name="NewGame" type="Control" parent="ServerMenu/CreateGameMenu"]
+visible = false
+margin_left = 815.942
+margin_top = 442.618
+margin_right = 1019.94
+margin_bottom = 494.618
+rect_scale = Vector2( 0.984994, 1 )
+mouse_filter = 2
+
+[node name="NewGameBG" type="TextureRect" parent="ServerMenu/CreateGameMenu/NewGame"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+rect_scale = Vector2( 1e-05, 0.05 )
+mouse_filter = 2
+texture = ExtResource( 6 )
+
+[node name="NewGame" type="Button" parent="ServerMenu/CreateGameMenu/NewGame"]
+visible = false
+margin_top = -1.0
+margin_right = 205.0
+margin_bottom = 54.0
+custom_fonts/font = SubResource( 8 )
+text = "CREATE GAME"
+flat = true
+
+[node name="JoinGameMenu" type="Control" parent="ServerMenu"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="UserNameInputs" type="Control" parent="ServerMenu/JoinGameMenu"]
+margin_left = 797.805
+margin_top = 388.098
+margin_right = 837.805
+margin_bottom = 428.098
+rect_scale = Vector2( 1e-05, 1 )
+
+[node name="P2" type="PanelContainer" parent="ServerMenu/JoinGameMenu/UserNameInputs"]
+margin_right = 250.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 9 )
+
+[node name="MarginContainer" type="MarginContainer" parent="ServerMenu/JoinGameMenu/UserNameInputs/P2"]
+margin_right = 250.0
+margin_bottom = 37.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="UsernameEntryJoin" type="LineEdit" parent="ServerMenu/JoinGameMenu/UserNameInputs/P2/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 245.0
+margin_bottom = 32.0
+custom_styles/normal = SubResource( 10 )
+custom_fonts/font = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MatchIDInput" type="Control" parent="ServerMenu/JoinGameMenu"]
+margin_left = 797.805
+margin_top = 478.098
+margin_right = 837.805
+margin_bottom = 518.098
+rect_scale = Vector2( 1e-05, 1 )
+
+[node name="Match" type="PanelContainer" parent="ServerMenu/JoinGameMenu/MatchIDInput"]
+margin_right = 250.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 9 )
+
+[node name="MarginContainer" type="MarginContainer" parent="ServerMenu/JoinGameMenu/MatchIDInput/Match"]
+margin_right = 250.0
+margin_bottom = 37.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="MatchIDEntry" type="LineEdit" parent="ServerMenu/JoinGameMenu/MatchIDInput/Match/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 245.0
+margin_bottom = 32.0
+custom_styles/normal = SubResource( 10 )
+custom_fonts/font = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Labels" type="Control" parent="ServerMenu/JoinGameMenu"]
+visible = false
+margin_left = 1.0
+margin_right = 41.0
+margin_bottom = 40.0
+
+[node name="Username" type="Label" parent="ServerMenu/JoinGameMenu/Labels"]
+margin_left = 826.008
+margin_top = 346.704
+margin_right = 1014.01
+margin_bottom = 381.704
+custom_fonts/font = SubResource( 11 )
+text = "Username"
+align = 1
+valign = 1
+
+[node name="MatchEntry" type="Label" parent="ServerMenu/JoinGameMenu/Labels"]
+margin_left = 826.008
+margin_top = 438.704
+margin_right = 1014.01
+margin_bottom = 473.704
+custom_fonts/font = SubResource( 11 )
+text = "Match ID"
+align = 1
+valign = 1
+
+[node name="JoinGame" type="Control" parent="ServerMenu/JoinGameMenu"]
+margin_left = 815.942
+margin_top = 542.618
+margin_right = 1019.94
+margin_bottom = 594.618
+mouse_filter = 2
+
+[node name="JoinGameBG" type="TextureRect" parent="ServerMenu/JoinGameMenu/JoinGame"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+rect_scale = Vector2( 1e-05, 0.05 )
+mouse_filter = 2
+texture = ExtResource( 6 )
+
+[node name="JoinGame" type="Button" parent="ServerMenu/JoinGameMenu/JoinGame"]
+visible = false
+margin_top = -1.0
+margin_right = 205.0
+margin_bottom = 54.0
+custom_fonts/font = SubResource( 8 )
+text = "JOIN GAME"
+flat = true
+
+[node name="LobbyMenu" type="Control" parent="."]
+margin_left = -1500.0
+margin_right = -1460.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LobbyMenu" type="Control" parent="LobbyMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 132.699
+margin_top = 163.039
+margin_right = 132.699
+margin_bottom = 163.039
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="LobbyMenu/LobbyMenu"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 990.0
+margin_bottom = 102.0
+custom_fonts/font = ExtResource( 5 )
+text = "Game Lobby"
+align = 1
+valign = 1
+
+[node name="PlayerCount" type="PanelContainer" parent="LobbyMenu/LobbyMenu"]
+margin_left = 361.0
+margin_top = 102.0
+margin_right = 641.0
+margin_bottom = 162.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+custom_styles/panel = SubResource( 12 )
+
+[node name="MarginContainer" type="MarginContainer" parent="LobbyMenu/LobbyMenu/PlayerCount"]
+margin_right = 280.0
+margin_bottom = 60.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="PCountLabel" type="Label" parent="LobbyMenu/LobbyMenu/PlayerCount/MarginContainer"]
+margin_left = 5.0
+margin_top = 12.0
+margin_right = 275.0
+margin_bottom = 47.0
+custom_styles/normal = SubResource( 13 )
+custom_fonts/font = ExtResource( 2 )
+text = "Players 1/2"
+align = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="LobbyMenu/LobbyMenu"]
+margin_left = -0.934692
+margin_top = 66.3639
+margin_right = 1009.07
+margin_bottom = 498.364
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LobbyMenu/LobbyMenu/MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 990.0
+margin_bottom = 412.0
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer"]
+margin_top = 46.0
+margin_right = 970.0
+margin_bottom = 346.0
+custom_constants/separation = 75
+alignment = 1
+
+[node name="PlayersList" type="VBoxContainer" parent="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 300.0
+margin_bottom = 300.0
+
+[node name="Player List" type="Label" parent="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/PlayersList"]
+visible = false
+margin_right = 300.0
+margin_bottom = 53.0
+custom_fonts/font = SubResource( 14 )
+text = "Players"
+align = 1
+valign = 1
+
+[node name="PlayerList" type="PanelContainer" parent="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/PlayersList"]
+margin_right = 300.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 300, 300 )
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 15 )
+
+[node name="MarginContainer" type="MarginContainer" parent="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/PlayersList/PlayerList"]
+margin_right = 300.0
+margin_bottom = 300.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="Scroll" type="ScrollContainer" parent="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/PlayersList/PlayerList/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 290.0
+margin_bottom = 290.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/PlayersList/PlayerList/MarginContainer/Scroll"]
+margin_right = 280.0
+margin_bottom = 280.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 11
+
+[node name="Player" type="PanelContainer" parent="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/PlayersList/PlayerList/MarginContainer/Scroll/VBoxContainer"]
+margin_right = 280.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+custom_styles/panel = SubResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/PlayersList/PlayerList/MarginContainer/Scroll/VBoxContainer/Player"]
+margin_right = 280.0
+margin_bottom = 60.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/PlayersList/PlayerList/MarginContainer/Scroll/VBoxContainer/Player/MarginContainer"]
+visible = false
+margin_left = 5.0
+margin_top = 12.0
+margin_right = 275.0
+margin_bottom = 47.0
+custom_styles/normal = SubResource( 13 )
+custom_fonts/font = ExtResource( 2 )
+text = "Player 1"
+align = 1
+
+[node name="Player2" type="PanelContainer" parent="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/PlayersList/PlayerList/MarginContainer/Scroll/VBoxContainer"]
+margin_top = 71.0
+margin_right = 280.0
+margin_bottom = 131.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+custom_styles/panel = SubResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/PlayersList/PlayerList/MarginContainer/Scroll/VBoxContainer/Player2"]
+margin_right = 280.0
+margin_bottom = 60.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/PlayersList/PlayerList/MarginContainer/Scroll/VBoxContainer/Player2/MarginContainer"]
+visible = false
+margin_left = 5.0
+margin_top = 12.0
+margin_right = 275.0
+margin_bottom = 47.0
+custom_styles/normal = SubResource( 13 )
+custom_fonts/font = SubResource( 16 )
+text = "Player 2"
+align = 1
+
+[node name="Buttons" type="VBoxContainer" parent="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 375.0
+margin_right = 595.0
+margin_bottom = 300.0
+custom_constants/separation = 25
+alignment = 1
+
+[node name="CloseLobby" type="PanelContainer" parent="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/Buttons"]
+margin_top = 67.0
+margin_right = 220.0
+margin_bottom = 137.0
+rect_min_size = Vector2( 220, 70 )
+custom_styles/panel = SubResource( 17 )
+
+[node name="Button" type="Button" parent="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/Buttons/CloseLobby"]
+visible = false
+margin_right = 220.0
+margin_bottom = 70.0
+custom_styles/normal = SubResource( 18 )
+custom_fonts/font = SubResource( 19 )
+text = "Back"
+
+[node name="StartGame" type="PanelContainer" parent="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/Buttons"]
+margin_top = 162.0
+margin_right = 220.0
+margin_bottom = 232.0
+rect_min_size = Vector2( 220, 70 )
+custom_styles/panel = SubResource( 17 )
+
+[node name="StartButton" type="Button" parent="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/Buttons/StartGame"]
+visible = false
+margin_right = 220.0
+margin_bottom = 70.0
+custom_styles/normal = SubResource( 18 )
+custom_fonts/font = SubResource( 20 )
+text = "Start Game"
+
+[node name="PlanetsList" type="VBoxContainer" parent="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 670.0
+margin_right = 970.0
+margin_bottom = 300.0
+
+[node name="Planet List" type="Label" parent="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/PlanetsList"]
+visible = false
+margin_right = 300.0
+margin_bottom = 53.0
+custom_fonts/font = SubResource( 14 )
+text = "Planets"
+align = 1
+valign = 1
+
+[node name="StartingPlanetList" type="PanelContainer" parent="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/PlanetsList"]
+margin_right = 300.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 300, 300 )
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 21 )
+
+[node name="MarginContainer" type="MarginContainer" parent="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/PlanetsList/StartingPlanetList"]
+margin_right = 300.0
+margin_bottom = 300.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="Scroll" type="ScrollContainer" parent="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/PlanetsList/StartingPlanetList/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 290.0
+margin_bottom = 290.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/PlanetsList/StartingPlanetList/MarginContainer/Scroll"]
+margin_right = 280.0
+margin_bottom = 280.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+
+[node name="Botra" type="PanelContainer" parent="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/PlanetsList/StartingPlanetList/MarginContainer/Scroll/VBoxContainer"]
+margin_right = 280.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+custom_styles/panel = SubResource( 22 )
+
+[node name="MarginContainer" type="MarginContainer" parent="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/PlanetsList/StartingPlanetList/MarginContainer/Scroll/VBoxContainer/Botra"]
+margin_right = 280.0
+margin_bottom = 60.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="Botra" type="Button" parent="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/PlanetsList/StartingPlanetList/MarginContainer/Scroll/VBoxContainer/Botra/MarginContainer"]
+visible = false
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 275.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 0, 37 )
+custom_styles/normal = SubResource( 23 )
+custom_fonts/font = SubResource( 24 )
+text = "Botra"
+
+[node name="Anaxes" type="PanelContainer" parent="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/PlanetsList/StartingPlanetList/MarginContainer/Scroll/VBoxContainer"]
+margin_top = 70.0
+margin_right = 280.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 0, 60 )
+custom_styles/panel = SubResource( 22 )
+
+[node name="MarginContainer" type="MarginContainer" parent="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/PlanetsList/StartingPlanetList/MarginContainer/Scroll/VBoxContainer/Anaxes"]
+margin_right = 280.0
+margin_bottom = 60.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="Anaxes" type="Button" parent="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/PlanetsList/StartingPlanetList/MarginContainer/Scroll/VBoxContainer/Anaxes/MarginContainer"]
+visible = false
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 275.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 0, 37 )
+custom_styles/normal = SubResource( 23 )
+custom_fonts/font = ExtResource( 2 )
+text = "Anaxes"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LobbyMenu/LobbyMenu"]
+margin_left = 142.0
+margin_top = 418.0
+margin_right = 858.0
+margin_bottom = 542.0
+custom_constants/separation = 10
+alignment = 1
+
+[node name="GameID" type="PanelContainer" parent="LobbyMenu/LobbyMenu/VBoxContainer"]
+margin_right = 716.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+custom_styles/panel = SubResource( 12 )
+
+[node name="MarginContainer" type="MarginContainer" parent="LobbyMenu/LobbyMenu/VBoxContainer/GameID"]
+margin_right = 716.0
+margin_bottom = 60.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="GameID" type="Label" parent="LobbyMenu/LobbyMenu/VBoxContainer/GameID/MarginContainer"]
+margin_left = 5.0
+margin_top = 12.0
+margin_right = 711.0
+margin_bottom = 47.0
+custom_styles/normal = SubResource( 13 )
+custom_fonts/font = ExtResource( 2 )
+text = "Game ID:"
+align = 1
+valign = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="LobbyMenu/LobbyMenu/VBoxContainer"]
+margin_top = 70.0
+margin_right = 716.0
+margin_bottom = 130.0
+
+[node name="CopyID" type="PanelContainer" parent="LobbyMenu/LobbyMenu/VBoxContainer/CenterContainer"]
+margin_left = 258.0
+margin_right = 458.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 200, 60 )
+size_flags_horizontal = 3
+custom_styles/panel = SubResource( 12 )
+
+[node name="MarginContainer" type="MarginContainer" parent="LobbyMenu/LobbyMenu/VBoxContainer/CenterContainer/CopyID"]
+margin_right = 200.0
+margin_bottom = 60.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="CopyID" type="Button" parent="LobbyMenu/LobbyMenu/VBoxContainer/CenterContainer/CopyID/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 195.0
+margin_bottom = 55.0
+custom_styles/normal = SubResource( 13 )
+custom_fonts/font = ExtResource( 2 )
+text = "COPY"
+
+[node name="FadeIn" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 1.0
+margin_right = 1921.0
+margin_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -80.0
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="pressed" from="StartMenu/NewGame/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="StartMenu/LoadGame/LoadGameButton" to="." method="_on_LoadGameButton_pressed"]
+[connection signal="pressed" from="ServerMenu/FirstButtons/CreateGame/CreateGameButton" to="." method="_on_CreateGameButton_pressed"]
+[connection signal="pressed" from="ServerMenu/FirstButtons/JoinGame/JoinGameButton" to="." method="_on_JoinGameButton_pressed"]
+[connection signal="text_changed" from="ServerMenu/CreateGameMenu/UserNameInputs/P1/MarginContainer/UsernameEntry" to="." method="_on_UsernameEntry_text_changed"]
+[connection signal="pressed" from="ServerMenu/CreateGameMenu/NewGame/NewGame" to="." method="_on_NewGame_pressed"]
+[connection signal="text_changed" from="ServerMenu/JoinGameMenu/UserNameInputs/P2/MarginContainer/UsernameEntryJoin" to="." method="_on_UsernameEntryJoin_text_changed"]
+[connection signal="text_changed" from="ServerMenu/JoinGameMenu/MatchIDInput/Match/MarginContainer/MatchIDEntry" to="." method="_on_MatchIDEntry_text_changed"]
+[connection signal="pressed" from="ServerMenu/JoinGameMenu/JoinGame/JoinGame" to="." method="_on_JoinGame_pressed"]
+[connection signal="pressed" from="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/Buttons/CloseLobby/Button" to="LobbyMenu/LobbyMenu" method="_on_Button_pressed"]
+[connection signal="pressed" from="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/Buttons/StartGame/StartButton" to="LobbyMenu/LobbyMenu" method="_on_StartButton_pressed"]
+[connection signal="pressed" from="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/PlanetsList/StartingPlanetList/MarginContainer/Scroll/VBoxContainer/Botra/MarginContainer/Botra" to="LobbyMenu/LobbyMenu" method="_on_Botra_pressed"]
+[connection signal="pressed" from="LobbyMenu/LobbyMenu/MarginContainer/VBoxContainer/HBoxContainer/PlanetsList/StartingPlanetList/MarginContainer/Scroll/VBoxContainer/Anaxes/MarginContainer/Anaxes" to="LobbyMenu/LobbyMenu" method="_on_Anaxes_pressed"]
+[connection signal="pressed" from="LobbyMenu/LobbyMenu/VBoxContainer/CenterContainer/CopyID/MarginContainer/CopyID" to="." method="_on_CopyID_pressed"]
+[connection signal="finished" from="Music" to="." method="_on_Music_finished"]

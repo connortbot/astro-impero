@@ -1,0 +1,289 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://ResourcesPanel.gd" type="Script" id=2]
+[ext_resource path="res://GUI_Assets/resources_button.png" type="Texture" id=3]
+[ext_resource path="res://GUI_Assets/resourcesterminal_bottom.png" type="Texture" id=4]
+[ext_resource path="res://GUI_Assets/supply_button.png" type="Texture" id=5]
+[ext_resource path="res://GUI_Assets/industry_button.png" type="Texture" id=6]
+[ext_resource path="res://GUI_Assets/resourcesterminal_top.png" type="Texture" id=7]
+[ext_resource path="res://GUI_Assets/ENERGY.png" type="Texture" id=8]
+[ext_resource path="res://GUI_Assets/metals_end.png" type="Texture" id=9]
+[ext_resource path="res://GUI_Assets/METALS.png" type="Texture" id=10]
+[ext_resource path="res://GUI_Assets/energy_end.png" type="Texture" id=11]
+[ext_resource path="res://GUI_Assets/fuel_end.png" type="Texture" id=12]
+[ext_resource path="res://GUI_Assets/FUEL.png" type="Texture" id=13]
+[ext_resource path="res://Nova_Light_Ultra.ttf" type="DynamicFontData" id=15]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 15 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 15 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 50
+font_data = ExtResource( 15 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 200
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 15 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 60
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 15 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 200
+use_mipmaps = true
+font_data = ExtResource( 15 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 50
+font_data = ExtResource( 15 )
+
+[node name="Resources Panel" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Top Terminal" type="TextureRect" parent="."]
+margin_left = 1.28925
+margin_top = 4.49231
+margin_right = 1066.29
+margin_bottom = 109.492
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bottom Terminal" type="TextureRect" parent="."]
+margin_left = 1.28925
+margin_top = 320.175
+margin_right = 1066.29
+margin_bottom = 425.175
+texture = ExtResource( 4 )
+
+[node name="ResourcesButton" type="TextureButton" parent="."]
+margin_left = 1.28925
+margin_top = 118.228
+margin_right = 229.289
+margin_bottom = 174.228
+texture_normal = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MetalsButton" type="TextureButton" parent="ResourcesButton"]
+margin_left = 235.703
+margin_top = 0.385986
+margin_right = 559.703
+margin_bottom = 56.386
+texture_normal = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MetalsAmount" type="Label" parent="ResourcesButton/MetalsButton"]
+margin_left = 642.186
+margin_top = 7.42662
+margin_right = 656.186
+margin_bottom = 50.4266
+grow_horizontal = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.588235, 0.623529, 0.996078, 1 )
+text = "0"
+align = 2
+valign = 1
+
+[node name="FuelAmount" type="Label" parent="ResourcesButton/MetalsButton"]
+margin_left = 642.837
+margin_top = 75.8568
+margin_right = 656.837
+margin_bottom = 118.857
+grow_horizontal = 0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.588235, 0.623529, 0.996078, 1 )
+text = "0"
+align = 2
+valign = 1
+
+[node name="EnergyAmount" type="Label" parent="ResourcesButton/MetalsButton"]
+margin_left = 644.139
+margin_top = 143.378
+margin_right = 658.139
+margin_bottom = 186.378
+grow_horizontal = 0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.588235, 0.623529, 0.996078, 1 )
+text = "0"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FuelButton" type="TextureButton" parent="ResourcesButton"]
+margin_left = 236.288
+margin_top = 66.7641
+margin_right = 560.288
+margin_bottom = 122.764
+texture_normal = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnergyButton" type="TextureButton" parent="ResourcesButton"]
+margin_left = 236.618
+margin_top = 132.596
+margin_right = 560.618
+margin_bottom = 188.596
+texture_normal = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MetalsEnd" type="TextureRect" parent="ResourcesButton"]
+margin_left = 900.0
+margin_top = 0.163757
+margin_right = 960.0
+margin_bottom = 56.1638
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FuelEnd" type="TextureRect" parent="ResourcesButton"]
+margin_left = 900.0
+margin_top = 68.4509
+margin_right = 960.0
+margin_bottom = 124.451
+texture = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnergyEnd" type="TextureRect" parent="ResourcesButton"]
+margin_left = 900.0
+margin_top = 134.407
+margin_right = 960.0
+margin_bottom = 190.407
+texture = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SupplyButton" type="TextureButton" parent="."]
+margin_left = 1.28925
+margin_top = 184.283
+margin_right = 229.289
+margin_bottom = 240.283
+texture_normal = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SupplyFulfillment" type="Label" parent="SupplyButton"]
+visible = false
+margin_left = 344.177
+margin_top = -82.2661
+margin_right = 949.177
+margin_bottom = 88.7339
+custom_fonts/font = SubResource( 4 )
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label" type="Label" parent="SupplyButton"]
+visible = false
+margin_left = 491.841
+margin_top = 83.7607
+margin_right = 766.841
+margin_bottom = 136.761
+custom_fonts/font = SubResource( 5 )
+text = "supply fulfillment"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IndustryButton" type="TextureButton" parent="."]
+margin_left = 1.28925
+margin_top = 250.588
+margin_right = 229.289
+margin_bottom = 306.588
+texture_normal = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StationAmount" type="Button" parent="IndustryButton"]
+visible = false
+margin_left = 279.019
+margin_top = -149.775
+margin_right = 615.019
+margin_bottom = 27.2253
+custom_fonts/font = SubResource( 6 )
+text = "XXXX"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="IndustryButton"]
+visible = false
+margin_left = 274.59
+margin_top = 8.65822
+margin_right = 624.59
+margin_bottom = 51.6582
+rect_min_size = Vector2( 350, 0 )
+custom_fonts/font = SubResource( 7 )
+text = "military stations"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Datawindow" type="Control" parent="IndustryButton"]
+visible = false
+margin_left = 427.974
+margin_top = -122.18
+margin_right = 467.974
+margin_bottom = -82.1796
+rect_scale = Vector2( 0.28, 0.28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="IndustryButton/Datawindow"]
+margin_left = 597.641
+margin_top = -152.424
+margin_right = 2297.64
+margin_bottom = 797.576
+rect_min_size = Vector2( 1700, 950 )
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="IndustryButton/Datawindow/ScrollContainer"]
+margin_right = 1700.0
+margin_bottom = 10000.0
+rect_min_size = Vector2( 1700, 10000 )
+custom_constants/separation = 20
+
+[connection signal="pressed" from="ResourcesButton" to="." method="_on_ResourcesButton_pressed"]
+[connection signal="pressed" from="SupplyButton" to="." method="_on_SupplyButton_pressed"]
+[connection signal="pressed" from="IndustryButton" to="." method="_on_IndustryButton_pressed"]
